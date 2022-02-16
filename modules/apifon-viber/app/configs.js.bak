@@ -1,0 +1,27 @@
+module.exports.minExpirationPeriodMs = 10 * 1000;
+
+// Apifon credentials
+// TODO: change in production!!!!!!!!!!!!!!!!!!!!!!!
+
+// module.exports.apifonAuthURL = 'https://ids-staging.apifon.com';
+module.exports.apifonAuthURL = 'https://ids.apifon.com';
+// module.exports.apifonRestAPI = 'https://ars-staging.apifon.com';
+module.exports.apifonRestAPI = 'https://ars.apifon.com';
+
+module.exports.dataExtensionExternalKey = '855BFC6D-FDE5-49A3-BCC6-76BCAEE7B360'; // DE ApifonAPIResponses
+
+module.exports.getKeys = function(apifonProfile) {
+  let clientId;
+  let clientSecret;
+
+  if (apifonProfile == 'profile_1') {
+    clientId = 'USWAFeG8aOQnYO4zLcklntWicZFquJ66q5A0tdznVvymTgtrnLmtKYWO1ENb6sEI';
+    clientSecret = 'R_VU4rvfofKIzClovWHHf9GWiTYa';
+  } else {
+    clientId = 'WFmsdKXAlW7dLAdKSDEg7vQXu2i85LQ81LuFecGGLm1AoWV32yaYcoq80ScxsIwD';
+    clientSecret = 'nPRR1EifxoMjDOc2pAyoQyE_mFca';
+  }
+
+  return {clientId, clientSecret};
+};
+

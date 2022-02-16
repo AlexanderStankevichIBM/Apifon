@@ -1,0 +1,6 @@
+{
+  "name": "Apifon Integration Custom Activities",
+  "description": "Apifon Integration Journey Builder Custom Activities.",
+  "repository": "https://github.com/Yurakus/sfmc-jb-custom-activity",
+  "keywords": ["node", "express", "static"]
+}

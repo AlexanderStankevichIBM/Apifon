@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Apifon Viber Activity</title>
+    <link rel="stylesheet" type="text/css" href="dist/design-system/styles/salesforce-lightning-design-system.css" >
+
+    <style>
+      .slds-form-element__control table td {
+            width: 100px;
+            padding-bottom: 5px;
+        }
+
+        .slds-form-element__control table td input,
+        .slds-form-element__control table td select {
+            width: 300px;
+        }
+
+        .slds-form-element__control table td select {
+            padding: 1px 2px;
+        }
+
+        #customization-options {
+            overflow: auto;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slds-form slds-m-around--medium">
+    <div class="slds-form-element slds-m-bottom_small">
+      <div class="slds-form-element__control">
+          <table><tbody>
+              <tr>
+                  <td><label for="apifon-senderid">Sender ID</label></td>
+                  <td><input type="text" id="apifon-senderid" name="apifon-senderid" value="Coral"></td>
+              </tr>
+              <!-- <tr><td colspan="2"><p>WARNING! For staging this must be Apifon Chat</p></td></tr> -->
+              
+              <tr>
+                <td><label for="apifon-journeymessageid">Journey - Message ID</label></td>
+                <td><input type="text" id="apifon-journeymessageid" name="apifon-journeymessageid"></td>
+              </tr>
+
+              <tr>
+                  <td><label for="apifon-profileid">Apifon Profile</label></td>
+                  <td>
+                      <select id="apifon-profileid" name="apifon-profileid">
+                          <option value="profile_1">Profile 1</option>
+<!--                        <option value="profile_2">AEAZ</option>-->
+                      </select>
+                  </td>
+              </tr>
+
+              <tr>
+                <td><label for="apifon-viber-image">Viber Image</label></td>
+                <td><input type="text" id="apifon-viber-image" name="apifon-viber-image" value=""></td>
+              </tr>
+
+              <tr>
+                <td><label for="apifon-viber-button-text">Viber button text</label></td>
+                <td><input type="text" id="apifon-viber-button-text" name="apifon-viber-button-text" value=""></td>
+              </tr>
+
+              <tr>
+                <td><label for="apifon-viber-button-action">Viber button action</label></td>
+                <td><input type="text" id="apifon-viber-button-action" name="apifon-viber-button-action" value=""></td>
+              </tr>
+
+              <tr>
+                <td><label class="slds-form-element__label" for="apifon-viber-text">Viber Message Text:</label></td>
+                <td><textarea id="apifon-viber-text" placeholder="Add Text here" style="width: 100%; height: 100px;"></textarea></td>
+              </tr>
+          </tbody></table>
+      </div>
+
+      <strong>Info: You can send viber messages with text only, image only, text + image + action, text + action!</strong>
+
+      <div class="slds-form-element__control">
+        <br>
+        <label>Personalization</label>
+        <ul id="customization-options"></ul>
+      </div>
+    </div>
+</div>
+
+<div class="slds-docked-form-footer" style="justify-content: flex-end">
+    <button id="cancel" type="button" class="slds-button slds-button_neutral">Cancel</button>
+    <button id="done" type="button" class="slds-button slds-button_brand slds-m-right--medium">Done</button>
+</div>
+<script type="text/javascript" src="dist/apifon-sms-activity.js"></script>
+</body>
+</html>
