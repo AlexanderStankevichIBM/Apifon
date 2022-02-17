@@ -21,6 +21,10 @@ jobs:
         with:
           node-version: '16.x'
 
+      - name: npm install, build, and test
+        run: |
+          npm install -g
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
@@ -48,3 +52,7 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5E293E519757413CB2AFEE6437B93C49 }}
           package: .
+
+      - name: run app
+        run: |
+          npm start
