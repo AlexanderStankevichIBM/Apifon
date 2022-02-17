@@ -27,7 +27,7 @@ jobs:
           npm config get https-proxy
           npm cache clean --force
           npm install -g
-          npm install -g webpack
+          npm install -D -g webpack-cli
           npm run build:dev --if-present
           npm run test --if-present
 
