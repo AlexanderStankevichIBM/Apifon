@@ -55,5 +55,5 @@ jobs:
 
       - name: run app
         run: |
-          npm install express
+          npm install express -g
           npm start
