@@ -23,12 +23,9 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          npm config get proxy
-          npm config get https-proxy
-          npm cache clean --force
           npm install -g
-          npm install -D -g webpack-cli
-          npm install -D -g webpack
+          npm install -g webpack
+          npm install -g webpack-cli
           npm run build:dev --if-present
           npm run test --if-present
 
