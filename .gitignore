@@ -5,7 +5,7 @@
 # modules/apifon-sms/dist
 
 # NODE/NPM/GRUNT
-# package-lock.json
+package-lock.json
 node_modules
 npm-debug.log
 .npm-debug.log
