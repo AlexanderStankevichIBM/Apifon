@@ -28,6 +28,7 @@ jobs:
           npm cache clean --force
           npm install -g
           npm install -D -g webpack-cli
+          npm install -D -g webpack
           npm run build:dev --if-present
           npm run test --if-present
 
