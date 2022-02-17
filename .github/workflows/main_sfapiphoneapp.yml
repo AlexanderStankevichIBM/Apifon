@@ -25,6 +25,7 @@ jobs:
         run: |
           npm config get proxy
           npm config get https-proxy
+          npm cache clean --force
           npm install
           npm run build --if-present
           npm run test --if-present
