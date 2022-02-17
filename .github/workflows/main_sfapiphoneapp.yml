@@ -24,8 +24,7 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install -g
-          npm install -g webpack
-          npm install -g webpack-cli
+          webpack --version
           npm run build:dev --if-present
           npm run test --if-present
 
