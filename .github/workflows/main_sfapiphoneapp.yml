@@ -25,7 +25,6 @@ jobs:
         run: |
           npm install -g
           webpack --version
-          npm link webpack
           npm run build:dev --if-present
           npm run test --if-present
 
