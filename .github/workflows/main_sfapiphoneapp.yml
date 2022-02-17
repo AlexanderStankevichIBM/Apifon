@@ -23,7 +23,9 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          npm install -g
+          npm install
+          npm run build --if-present
+          npm run test --if-present
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -50,5 +52,5 @@ jobs:
         with:
           app-name: 'sfapiphoneapp'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5E293E519757413CB2AFEE6437B93C49 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_92150B04CB8644008BAA88F75A60C84A }}
           package: .
