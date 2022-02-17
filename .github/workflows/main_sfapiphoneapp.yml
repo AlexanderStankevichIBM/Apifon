@@ -23,7 +23,7 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          npm install -g
+          npm install --only=prod
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -55,4 +55,5 @@ jobs:
 
       - name: run app
         run: |
+          npm install express
           npm start
