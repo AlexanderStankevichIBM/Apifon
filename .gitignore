@@ -1,8 +1,8 @@
 # WEBPACK
-dist
-modules/discount-code/dist
-modules/discount-redemption-split/dist
-modules/apifon-sms/dist
+# dist
+# modules/discount-code/dist
+# modules/discount-redemption-split/dist
+# modules/apifon-sms/dist
 
 # NODE/NPM/GRUNT
 node_modules
