@@ -5,7 +5,7 @@ modules/discount-redemption-split/dist
 modules/apifon-sms/dist
 
 # NODE/NPM/GRUNT
-node_modules
+# node_modules
 npm-debug.log
 .npm-debug.log
 
