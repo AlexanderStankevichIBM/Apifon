@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'sfapiphoneapp'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_92150B04CB8644008BAA88F75A60C84A }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_70240BAFEA234B34A912333181FD8D35 }}
           package: .
