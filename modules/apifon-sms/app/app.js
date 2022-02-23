@@ -35,6 +35,7 @@ module.exports = function apifonSMS(app, options) {
   app.get('/modules/apifon-sms/index.html', function (req, res) {
     // you can use your favorite templating library to generate your html file.
     // this example keeps things simple and just returns a static file
+    console.log('get /modules/apifon-sms/index.html');
     return res.sendFile(`${moduleDirectory}/html/index.html`);
   });
 
@@ -42,6 +43,7 @@ module.exports = function apifonSMS(app, options) {
   app.get('/modules/apifon-sms/config.json', function (req, res) {
     // Journey Builder looks for config.json when the canvas loads.
     // We'll dynamically generate the config object with a function
+    console.log('get /modules/apifon-sms/config.json');
     return res.status(200).json(configJSON(req));
   });
 
@@ -62,7 +64,7 @@ module.exports = function apifonSMS(app, options) {
    * 50x - Return if the configuration is invalid (this will block the publish phase)
    */
   app.post('/modules/apifon-sms/save', function(req, res) {
-    // console.log('debug: /modules/apifon-sms/save');
+    console.log('debug: /modules/apifon-sms/save');
     return res.status(200).json({"success": true});
   });
 
@@ -77,7 +79,7 @@ module.exports = function apifonSMS(app, options) {
    * 50x - Return if the configuration is invalid (this will block the publish phase)
    */
   app.post('/modules/apifon-sms/publish', function(req, res) {
-    // console.log('debug: /modules/apifon-sms/publish');
+    console.log('debug: /modules/apifon-sms/publish');
     return res.status(200).json({"success": true});
   });
 
@@ -91,7 +93,7 @@ module.exports = function apifonSMS(app, options) {
    * 50x - Return if the configuration is invalid (this will block the publish phase)
    */
   app.post('/modules/apifon-sms/validate', function(req, res) {
-    // console.log('debug: /modules/apifon-sms/validate');
+    console.log('debug: /modules/apifon-sms/validate');
     return res.status(200).json({"success": true});
   });
 
@@ -107,7 +109,7 @@ module.exports = function apifonSMS(app, options) {
    * @return {[type]}
    */
   app.post('/modules/apifon-sms/stop', function(req, res) {
-    // console.log('debug: /modules/apifon-sms/stop');
+    console.log('debug: /modules/apifon-sms/stop');
     return res.status(200).json({"success": true});
   });
 
@@ -120,7 +122,7 @@ module.exports = function apifonSMS(app, options) {
    * 5xx - Contact is ejected from the Journey.
    */
   app.post('/modules/apifon-sms/execute', (req, res) => {
-    // console.log('debug: /modules/apifon-sms/execute');
+    console.log('debug: /modules/apifon-sms/execute');
     sendSMS(req);
     const responseObject = {};
     return res.status(200).json(responseObject);
@@ -130,7 +132,7 @@ module.exports = function apifonSMS(app, options) {
    * Called when a callback is set
    */
   app.post('/modules/apifon-sms/callback', (req, res) => {
-    //console.log('debug: /modules/apifon-sms/callback');
+    console.log('debug: /modules/apifon-sms/callback');
     const request = req.body;
     const status = request.data[0].status.text;
     const subscriberKey = request.data[0].custom_id;
@@ -139,7 +141,7 @@ module.exports = function apifonSMS(app, options) {
     sendApifonResponseToSFMC(subscriberKey, JSON.stringify(request), status, journeyMessageId);
 
     async function sendApifonResponseToSFMC(subscriberKey, event, text, journeyMessageId) {
-      const dataExtensionExternalKey = 'D8D389BE-66A5-4F6B-BC12-114D6EAC655B'; // ApifonSMSHistory DE
+      const dataExtensionExternalKey = '64F1962A-159D-4A2C-8C58-2D7F8CE48ABE'; // ApifonSMSHistory DE
       const id = Uuidv1();
 
       try {

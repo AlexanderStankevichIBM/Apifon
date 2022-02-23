@@ -5,7 +5,7 @@ const options = {
     clientId: 'gt06c34bny02vklfo8t239pn',
     clientSecret: '8YoB3PaYwoZDsfJkkm8TsHqP',
     authOptions: {
-      authVersion: 2, 
+      authVersion: 2,
       accountId: 510003693,
     },
     authUrl: `https://mcw50wksptqsxkv74lz7glc86wty.auth.marketingcloudapis.com/v2/token`,
@@ -31,7 +31,8 @@ const saveData = async (externalKey, data) => client.post({
   json: true,
   body: data,
 }).then(result => {
-  // console.log(result);
+  console.log('save data de:::' + externalKey);
+  console.log('save data::: ' + JSON.stringify(result));
 }).catch(error => {
   console.log(error);
 });

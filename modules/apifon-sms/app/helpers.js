@@ -57,7 +57,7 @@ module.exports.getToken = async function(apifonProfile) {
   const lastToken = tokens[apifonProfile];
 
   if (lastToken) {
-	const tokenTimeLeftMs = lastToken.expiresAt - Date.now();
+    const tokenTimeLeftMs = lastToken.expiresAt - Date.now();
     if (tokenTimeLeftMs > minExpirationPeriodMs) {
       console.log('debug: Token for', apifonProfile, 'found!')
       return lastToken.access_token;
@@ -86,22 +86,22 @@ module.exports.getToken = async function(apifonProfile) {
   const url = apifonAuthURL + '/oauth2/token';
   const requestedScopes = 'accountInfo+imGateway+smsGateway';
   const body = 'grant_type=client_credentials&client_id=CLIENT_ID&client_secret=CLIENT_SECRET&scopes=REQUESTED_SCOPES'
-    .replace('CLIENT_ID', clientId)
-    .replace('CLIENT_SECRET', clientSecret)
-    .replace('REQUESTED_SCOPES', requestedScopes);
+      .replace('CLIENT_ID', clientId)
+      .replace('CLIENT_SECRET', clientSecret)
+      .replace('REQUESTED_SCOPES', requestedScopes);
   const headers = {'Content-Type': 'application/x-www-form-urlencoded'};
 
   const token = await axios
-    .post(url, body, {headers})
-    .then((response) => {
-      sendResponseToSFMC('AutoGetToken', url, JSON.stringify(response.data));
-      return response.data;
-    })
-    .catch((error) => {
-      console.log(error.response, ['config', 'headers', 'status', 'statusText', 'data']);
-      sendResponseToSFMC('GetToken', url,
-        JSON.stringify(error.response, ['config', 'headers', 'status', 'statusText', 'data']));
-    });
+      .post(url, body, {headers})
+      .then((response) => {
+        sendResponseToSFMC('AutoGetToken', url, JSON.stringify(response.data));
+        return response.data;
+      })
+      .catch((error) => {
+        console.log(error.response, ['config', 'headers', 'status', 'statusText', 'data']);
+        sendResponseToSFMC('GetToken', url,
+            JSON.stringify(error.response, ['config', 'headers', 'status', 'statusText', 'data']));
+      });
 
   promisedToken.isResolved = true;
 
@@ -153,17 +153,17 @@ module.exports.sendSMS = async function(req) {
   };
 
   axios
-    .post(smsApiUrl, smsApiBody, {headers: smsApiHeaders})
-    .then((result) => {
-      console.log('SMS send: ' + result.headers);
-      sendResponseToSFMC(subscriberKey, smsApiUrl, JSON.stringify(result.data));
-    })
-    .catch((error) => {
-      console.log('SMS send error:');
-      const errorToString = JSON.stringify(error.response, ['config', 'headers', 'status', 'statusText', 'data']);
-      console.log(errorToString);
-      sendResponseToSFMC(subscriberKey, smsApiUrl, errorToString);
-    });
+      .post(smsApiUrl, smsApiBody, {headers: smsApiHeaders})
+      .then((result) => {
+        console.log('SMS send: ' + JSON.stringify(result.headers));
+        sendResponseToSFMC(subscriberKey, smsApiUrl, JSON.stringify(result.data));
+      })
+      .catch((error) => {
+        console.log('SMS send error:');
+        const errorToString = JSON.stringify(error.response, ['config', 'headers', 'status', 'statusText', 'data']);
+        console.log(errorToString);
+        sendResponseToSFMC(subscriberKey, smsApiUrl, errorToString);
+      });
 };
 
 async function getShortenedLink(unsubLink, smsText) {
@@ -179,25 +179,25 @@ async function getShortenedLink(unsubLink, smsText) {
   };
 
   await axios
-    .post(TinyUrl_API_url, TinyUrl_API_body, {
-      headers: TinyUrl_API_headers
-    })
-    .then((result) => {
-      const TinyUrlRespo = result.data;
-      let shortenedLink;
-      
-      if (TinyUrlRespo.errors.length == 0) {
-        shortenedLink = TinyUrlRespo.data.tiny_url;
-        smsText = smsText.replace(unsubSnippet, shortenedLink);
-      } else {
+      .post(TinyUrl_API_url, TinyUrl_API_body, {
+        headers: TinyUrl_API_headers
+      })
+      .then((result) => {
+        const TinyUrlRespo = result.data;
+        let shortenedLink;
+
+        if (TinyUrlRespo.errors.length == 0) {
+          shortenedLink = TinyUrlRespo.data.tiny_url;
+          smsText = smsText.replace(unsubSnippet, shortenedLink);
+        } else {
+          smsText = smsText.replace(unsubSnippet, unsubLink);
+        }
+      })
+      .catch((error) => {
         smsText = smsText.replace(unsubSnippet, unsubLink);
-      }
-    })
-    .catch((error) => {
-      smsText = smsText.replace(unsubSnippet, unsubLink);
-      // console.log('TinyUrl error:');
-      // console.log(error);
-    });
+        // console.log('TinyUrl error:');
+        // console.log(error);
+      });
 
   return smsText;
 }
