@@ -139,7 +139,7 @@ module.exports = function apifonViber(app, options) {
     sendApifonResponseToSFMC(subscriberKey, JSON.stringify(request), status, journeyMessageId);
 
     async function sendApifonResponseToSFMC(subscriberKey, event, text, journeyMessageId) {
-      const dataExtensionExternalKey = 'FD5F7BFD-708D-4B89-B09C-8F053514EE0D'; // AfifonViberHistory DE
+      const dataExtensionExternalKey = 'D694A17F-ECFC-40ED-B8D9-42256055B1B1'; // AfifonViberHistory DE
       const id = uuidv1();
 
       try {

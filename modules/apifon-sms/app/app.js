@@ -141,7 +141,7 @@ module.exports = function apifonSMS(app, options) {
     sendApifonResponseToSFMC(subscriberKey, JSON.stringify(request), status, journeyMessageId);
 
     async function sendApifonResponseToSFMC(subscriberKey, event, text, journeyMessageId) {
-      const dataExtensionExternalKey = '64F1962A-159D-4A2C-8C58-2D7F8CE48ABE'; // ApifonSMSHistory DE
+      const dataExtensionExternalKey = '8E75CB2F-9D91-4A77-81F9-6CC99AEC938B'; // ApifonSMSHistory DE
       const id = Uuidv1();
 
       try {
