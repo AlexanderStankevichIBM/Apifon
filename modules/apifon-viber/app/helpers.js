@@ -144,7 +144,7 @@ module.exports.sendViberMessage = async function(req) {
       number: viber_phone_number,
       custom_id: subscriberKey
     }],
-    callback_url: `https://${req.headers.host}/modules/apifon-viber/callback`,
+    callback_url: `https://${req.headers.host}:443/modules/apifon-viber/callback`,
     reference_id: viber_journey_message_id,
     im_channels: [{
       sender_id: viber_sender_id,

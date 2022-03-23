@@ -148,7 +148,7 @@ module.exports.sendSMS = async function(req) {
       'number': smsPhoneNumber,
       'custom_id': subscriberKey,
     }],
-    'callback_url': `https://${req.headers.host}/modules/apifon-sms/callback`,
+    'callback_url': `https://${req.headers.host}:443/modules/apifon-sms/callback`,
     'reference_id': smsJourneyMessageId,
   };
 
