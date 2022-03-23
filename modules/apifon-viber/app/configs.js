@@ -21,14 +21,14 @@ module.exports.getKeys = function(apifonProfile) {
   let clientSecret;
 
   if (apifonProfile == 'profile_1') {
-    clientId = 'ZHwcrhfLln4GYOv2GUOSlcjyGPuBouGx05dCWbwaYSWElBMU9kau9yHNDH6P7M7w';
-    // clientId = 'PROFILE 1 CLIENT ID';
-    clientSecret = 'PPp9IMwPxxnHpxY9MmyNgo_AsMsa';
-    // clientSecret = 'PROFILE 1 CLIENT SECRET';
+    clientId = 'TxQxa8b6MnubWMjOtRuSvXsEQCnOVYOJciZ2wfKqNvPpu5aJLs2MAr27jzYpmgxm';
+    // clientId = 'Loyalty CLIENT ID';
+    clientSecret = 's4IhlbhLWPcd_3XXhhUjBfv5z0Ia';
+    // clientSecret = 'Loyalty CLIENT SECRET';
   } else {
-    clientId = 'ZHwcrhfLln4GYOv2GUOSlcjyGPuBouGx05dCWbwaYSWElBMU9kau9yHNDH6P7M7w';
+    clientId = 'dEC1gMPFFLPGcDXzJN6XS4ADhWp5XdVzRrl2mX0aVpDYAngjskT7PgppTkTjWkNl';
     // clientId = 'PROFILE 2 CLIENT ID';
-    clientSecret = 'PPp9IMwPxxnHpxY9MmyNgo_AsMsa';
+    clientSecret = 'lDi4OXfSWUuk4ZRWaW5p4QmoqEQa';
     // clientSecret = 'PROFILE 2 CLIENT SECRET';
   }
 
